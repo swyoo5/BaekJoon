@@ -21,6 +21,6 @@ int main(void) {
         index += diff;
         diff++;
     }
-    cout << numerator << "/" << denominator << endl;
+    cout << numerator << '/' << denominator << endl;
     return 0;
 }
