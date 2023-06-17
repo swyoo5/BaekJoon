@@ -15,8 +15,8 @@ int main(void) {
         result /= 10;
     }
     
-    for (int i = 0; i < 10; i++) {
-        cout << number[i] << endl;
+    for (int i : number) {
+        cout << i << endl;
     }
     
     return 0;
