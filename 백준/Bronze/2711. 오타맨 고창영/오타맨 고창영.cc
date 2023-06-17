@@ -13,16 +13,12 @@ int main(void) {
         
         cin >> index >> word;
         
-        for (int i = 0; i < index - 1; i++) {
-            cout << word[i];
+        for (int i = 0; i < word.length(); i++) {
+            if (i != index - 1) {
+                cout << word[i];
+            }
         }
-        
-        for (int i = index; i < word.length(); i++) {
-            cout << word[i];
-        }
-        
         cout << "\n";
-        
     }
     return 0;
 }
