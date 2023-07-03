@@ -8,18 +8,13 @@ int main(void) {
     
     money = 1000 - money;
     
+    int money_arr[6] = {500, 100, 50, 10, 5, 1};
     int result = 0;
-    result += money / 500;
-    money %= 500;
-    result += money / 100;
-    money %= 100;
-    result += money / 50;
-    money %= 50;
-    result += money / 10;
-    money %= 10;
-    result += money / 5;
-    money %= 5;
-    result += money;
+    
+    for (int i = 0; i < 6; i++) {
+        result += money / money_arr[i];
+        money %= money_arr[i];
+    }
     
     cout << result;
     return 0;
