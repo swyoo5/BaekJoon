@@ -9,7 +9,7 @@ int main(void) {
     int *distance = new int[city - 1];
     int *price = new int[city - 1]; // 마지막 도시의 기름가격은 필요없음
     
-    long rest_distance = 0;
+    int rest_distance = 0;
     for (int i = 0; i < city - 1; i++) {
         cin >> distance[i];
         rest_distance += distance[i];
@@ -23,7 +23,7 @@ int main(void) {
         }
     }
     
-    long long total_price = 0;
+    int total_price = 0;
     
     for (int i = 0; i < city - 1; i++) {
         if (min_price == price[i]) {
