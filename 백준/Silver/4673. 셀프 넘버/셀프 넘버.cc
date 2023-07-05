@@ -2,31 +2,32 @@
 
 using namespace std;
 
+int digit_sum(int num);
+
 int main(void) {
-    int self_number[10001];
+    bool self_num[10001] = {false,};
+    
     for (int i = 1; i <= 10000; i++) {
-        self_number[i] = i;
-    }
-
-    for (int i = 1; i <= 10000; i++) {
-        int temp = i;
-        int digit_sum = i;
-
-        while (temp != 0) {
-            digit_sum += temp % 10;
-            temp /= 10;
-        }
-
-        if (digit_sum >= 1 && digit_sum <= 10000) {
-            self_number[digit_sum] = 0;
+        int n = digit_sum(i);
+        if (n <= 10000) {
+            self_num[n] = true;
         }
     }
-
+    
     for (int i = 1; i <= 10000; i++) {
-        if (self_number[i] == 0) {
-            continue;
+        if (!self_num[i]) {
+            cout << i << '\n';
         }
-        cout << self_number[i] << '\n';
     }
     return 0;
+}
+
+int digit_sum(int num) {
+    int sum = num;
+    
+    while (num != 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
 }
