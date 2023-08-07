@@ -1,2 +1,1 @@
-word = str(input())
-print(len(word))
+print(len(input()))
