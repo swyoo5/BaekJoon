@@ -4,7 +4,6 @@ def solution(n):
 
     for i in range(3, n + 1, 2) :
         is_prime = True
-        j = 0
         for j in range(2, int(i ** 0.5 + 1)) :
             if i % j == 0 :
                 is_prime = False
