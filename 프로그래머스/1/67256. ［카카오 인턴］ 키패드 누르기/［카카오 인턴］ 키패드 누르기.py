@@ -2,37 +2,40 @@ def manhattan(hand_x, hand_y, x, y) :
     return abs(hand_x - x) + abs(hand_y - y)
 
 def solution(numbers, hand):
+    number_coord = {
+        1 : (0, 0), 2 : (0, 1), 3 : (0, 2),
+        4 : (1, 0), 5 : (1, 1), 6 : (1, 2),
+        7 : (2, 0), 8 : (2, 1), 9 : (2, 2),
+        0 : (3, 1)
+    }
+    
+    left_coord = (3, 0) # 왼쪽 엄지 좌표
+    right_coord = (3, 2) # 오른쪽 엄지 좌표
+    
     answer = ''
-    left_x, left_y = 3, 0 # 왼쪽 엄지 좌표
-    right_x, right_y = 3, 2 # 오른쪽 엄지 좌표
-    
-    # 숫자 : y좌표 딕셔너리
-    left_num = {1 : 0, 4 : 1, 7 : 2} 
-    middle_num = {2 : 0, 5 : 1, 8 : 2, 0 : 3}
-    right_num = {3 : 0, 6 : 1, 9 : 2}
-    
     for num in numbers :
-        if num in left_num.keys() :
+        coord = number_coord[num]
+        if num in [1, 4, 7] :
             answer = answer + 'L'
-            left_x, left_y = left_num[num], 0
-        elif num in right_num.keys() :
+            left_coord = coord
+        elif num in [3, 6, 9] :
             answer = answer + 'R'
-            right_x, right_y = right_num[num], 2
+            right_coord = coord
         else :
-            target_x, target_y = middle_num[num], 1
-            left_distance = manhattan(left_x, left_y, target_x, target_y)
-            right_distance = manhattan(right_x, right_y, target_x, target_y)
+            target_coord = coord
+            left_distance = manhattan(left_coord[0], left_coord[1], target_coord[0], target_coord[1])
+            right_distance = manhattan(right_coord[0], right_coord[1], target_coord[0], target_coord[1])
             if left_distance > right_distance :
                 answer = answer + 'R'
-                right_x, right_y = target_x, target_y
+                right_coord = coord
             elif left_distance < right_distance :
                 answer = answer + 'L'
-                left_x, left_y = target_x, target_y
+                left_coord = coord
             else :
                 if hand == "right" :
                     answer = answer + 'R'
-                    right_x, right_y = target_x, target_y
+                    right_coord = coord
                 else :
                     answer = answer + 'L'
-                    left_x, left_y = target_x, target_y   
+                    left_coord = coord
     return answer
