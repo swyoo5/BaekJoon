@@ -29,7 +29,7 @@ public class Main {
                 dp[i] = dp[i - 5] + 1;
             }
             
-            if (dp[i] != -1 && dp[i - 3] != -1 && dp[i - 5] != -1) {
+            if (dp[i - 3] != -1 && dp[i - 5] != -1) {
                 dp[i] = Math.min(dp[i - 3], dp[i - 5]) + 1;
             }
         }
