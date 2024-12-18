@@ -15,12 +15,12 @@ public class Main {
         Arrays.sort(arr);
         
         int result = 0;
+        for (int i = 1; i < n; i++) {
+            arr[i] = arr[i] + arr[i - 1];
+        }
+        
         for (int i = 0; i < n; i++) {
-            int temp = 0;
-            for (int j = 0; j <= i; j++) {
-                temp += arr[j];
-            }
-            result += temp;
+            result += arr[i];
         }
         
         System.out.println(result);
