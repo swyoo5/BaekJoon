@@ -17,6 +17,7 @@ public class Main {
                 result++;
             }
         }
+        
         System.out.println(result);
     }
 }
